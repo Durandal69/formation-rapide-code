@@ -5,6 +5,7 @@
 package exo1;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  *
@@ -16,15 +17,21 @@ public class Exo1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        System.out.print("Quel est votre nombre ?");
-        int i=System.in.read();
-        if (i<=50) {
-            System.out.println("c'est un nombre inférieur ou égal à 50.");
-        }
-        else {
-            System.out.println("c'est un nombre supérieur à 50.");
-        }
         
+        Scanner scanner = new Scanner(System.in);
+        int i; // je déclare une variable qui est i
+        do { 
+            System.out.print("Quel est votre nombre ?");
+            i=scanner.nextInt(); // elle lit ma valeur de i tapé au clavier
+            if (i<=50) {
+                System.out.println(i+" est un nombre inférieur ou égal à 50.");
+            } else if (0>i) {
+                System.out.println("GAME OVER");
+            } else {
+                System.out.println(i+" est un nombre supérieur à 50.");
+            }
+       
+        } while (0<=i); // elle boucle tant que i est au dessus de 0
     }
     
 }
