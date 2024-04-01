@@ -20,15 +20,19 @@ public class Exo2 {
         System.out.print("Combien d'étage voulez-vous ?");
         int nbEtage = scanner.nextInt(); // elle lit ma valeur de floor tapé au clavier
         String s = "*"; // c'est ma structure d'étages
+        String b = "^"; // c'est ma pointe
+        int nbespace = nbEtage-1;
+        String espace = " ";
         for (int floor = 1; floor <= nbEtage; floor++) {
             
             if (floor == 1) {
-                System.out.println("^");
+                System.out.println(espace.repeat(nbespace) + b);
             } else {
                 
-                System.out.println("/"+s+"\\");
+                System.out.println(espace.repeat(nbespace) + "/"+s+"\\");
                 s = s+"**";    
             }
+            nbespace--;
             
         } 
         if (nbEtage < 0) {
