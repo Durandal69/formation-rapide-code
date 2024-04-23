@@ -4,6 +4,7 @@
  */
 package exo4;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -18,28 +19,34 @@ public class Exo4 {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Quel nombre voulez-vous tester ?");
-        int nombrechoisit = scanner.nextInt(); //ça va lire la valeur choisit par l'user.
-        
-        boolean estPremier = estPremier(nombrechoisit);
-
-        if (estPremier) {
-            System.out.println("C'est un nombre premier.");
-        } else {
-            System.out.println("Ce n'est pas un nombre premier.");
-        }
+        System.out.println("Combien de nombre premier voulez-vous ?");
+        int quantiteVoulu = scanner.nextInt(); //ça va lire la valeur choisit par l'user.
+        int i = 1;
+        ArrayList<Integer> listeDesPremiers = new ArrayList();
+        while (listeDesPremiers.size() <= quantiteVoulu) {
+            if (estPremier(i) == true) {
+                
+                listeDesPremiers.add(i);
+            } 
+            i++;
+        }   
+        System.out.println(listeDesPremiers.toString());
     }
 
-    public static boolean estPremier(int nombrechoisit) {
-        for (int diviseur = 2; diviseur <= nombrechoisit / 2; diviseur++) {
+    /**
+     * Cette fonction offre une valeur true ou false en fonction du nombre testé
+     * pour savoir si celui-ci est premier ou non.
+     *
+     * @param nombreATester
+     * @return
+     */
+    public static boolean estPremier(int nombreATester) {
+        for (int diviseur = 2; diviseur <= nombreATester / 2; diviseur++) {
 
-            if (nombrechoisit % diviseur == 0) {
+            if (nombreATester % diviseur == 0) {
                 return false;
-
             }
-
         }
         return true;
     }
 }
-//n++ % > 0
